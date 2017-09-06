@@ -16,6 +16,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="15dp"
+            android:text="@string/default_quote"
             android:textSize="25sp" />
 
         <com.braincollaboration.wquote.widget.AlphaAnimationTextView
@@ -25,6 +26,7 @@
             android:layout_weight="0.2"
             android:gravity="left|center_vertical"
             android:padding="15dp"
+            android:text="@string/default_quote_author"
             android:textSize="20sp" />
 
     </LinearLayout>
