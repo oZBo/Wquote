@@ -13,6 +13,7 @@ import com.braincollaboration.wquote.model.LanguageType;
 import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
 import com.braincollaboration.wquote.widget.AlphaAnimationTextView;
+import com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,9 +21,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    AlphaAnimationTextView quoteText;
-    AlphaAnimationTextView quoteAuthor;
-    Button refreshBtn;
+    private ColorAnimationRelativeLayout parentLayout;
+    private AlphaAnimationTextView quoteText;
+    private AlphaAnimationTextView quoteAuthor;
+    private Button refreshBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initWidgets() {
+        parentLayout = (ColorAnimationRelativeLayout) findViewById(R.id.parent_layout);
         quoteText = (AlphaAnimationTextView) findViewById(R.id.quote_text);
         quoteAuthor = (AlphaAnimationTextView) findViewById(R.id.quote_author);
         refreshBtn = (Button) findViewById(R.id.check_service_button);
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     quoteText.updateTextValue(response.body().getQuoteText());
                     quoteAuthor.updateTextValue(response.body().getQuoteAuthor());
+                    parentLayout.updateBackgroundColor();
                 }
             }
 
