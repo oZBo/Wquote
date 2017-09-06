@@ -6,13 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.braincollaboration.wquote.R;
 import com.braincollaboration.wquote.api.ApiUtils;
 import com.braincollaboration.wquote.model.LanguageType;
 import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
+import com.braincollaboration.wquote.widget.AlphaAnimationTextView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,8 +20,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView quoteText;
-    TextView quoteAuthor;
+    AlphaAnimationTextView quoteText;
+    AlphaAnimationTextView quoteAuthor;
     Button refreshBtn;
 
     @Override
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initWidgets() {
-        quoteText = (TextView) findViewById(R.id.quote_text);
-        quoteAuthor = (TextView) findViewById(R.id.quote_author);
+        quoteText = (AlphaAnimationTextView) findViewById(R.id.quote_text);
+        quoteAuthor = (AlphaAnimationTextView) findViewById(R.id.quote_author);
         refreshBtn = (Button) findViewById(R.id.check_service_button);
     }
 
@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void refreshQuote(LanguageType langType){
+    private void refreshQuote(LanguageType langType) {
         ApiUtils.getForismaticService().getRandomQuote(langType.name().toLowerCase()).enqueue(new Callback<Quote>() {
             @Override
             public void onResponse(@NonNull Call<Quote> call, @NonNull Response<Quote> response) {
                 if (response.isSuccessful()) {
-                    quoteText.setText(response.body().getQuoteText());
-                    quoteAuthor.setText(response.body().getQuoteAuthor());
+                    quoteText.updateTextValue(response.body().getQuoteText());
+                    quoteAuthor.updateTextValue(response.body().getQuoteAuthor());
                 }
             }
 

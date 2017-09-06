@@ -6,6 +6,6 @@ package com.braincollaboration.wquote.utils;
 
 public class Constants {
 
-    public static final String LOG_TAG = "WqoutesTag";
+    public static final String LOG_TAG = "WquotesTag";
 
 }
