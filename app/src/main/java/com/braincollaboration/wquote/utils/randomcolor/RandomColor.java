@@ -130,7 +130,7 @@ public class RandomColor {
         return hue;
     }
 
-    private int pickHue(String name) {
+    public int pickHue(String name) {
         Range hueRange = getHueRange(name);
         return doPickHue(hueRange);
     }

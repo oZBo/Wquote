@@ -28,10 +28,10 @@ public class ColorAnimationRelativeLayout extends RelativeLayout {
 
     public ColorAnimationRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        randomColor = new RandomColor();
     }
 
-    public void updateBackgroundColor(){
-        randomColor = new RandomColor();
+    public void updateBackgroundColor() {
         colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), ViewUtils.getViewBackgroundColor(this), getRandomColor());
         colorAnimation.setDuration(2000); // milliseconds
         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -45,12 +45,8 @@ public class ColorAnimationRelativeLayout extends RelativeLayout {
         colorAnimation.start();
     }
 
-    private void initAnimation(){
-
-    }
-
-    private int getRandomColor(){
-        return randomColor.randomColor();
+    private int getRandomColor() {
+        return randomColor.randomColor(randomColor.pickHue(RandomColor.Color.BLUE.toString()), RandomColor.SaturationType.RANDOM, RandomColor.Luminosity.LIGHT);
     }
 
 }
