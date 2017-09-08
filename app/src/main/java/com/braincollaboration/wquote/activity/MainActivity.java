@@ -12,7 +12,8 @@ import com.braincollaboration.wquote.api.ApiUtils;
 import com.braincollaboration.wquote.model.LanguageType;
 import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
-import com.braincollaboration.wquote.widget.AlphaAnimationTextView;
+import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
+import com.braincollaboration.wquote.widget.AnimationTextView;
 import com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout;
 
 import retrofit2.Call;
@@ -22,8 +23,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ColorAnimationRelativeLayout parentLayout;
-    private AlphaAnimationTextView quoteText;
-    private AlphaAnimationTextView quoteAuthor;
+    private AnimationTextView quoteText, quoteAuthor;
+    private AlphaAnimationImageView openQuoteImage, closeQuoteImage;
     private Button refreshBtn;
 
     @Override
@@ -36,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void initWidgets() {
         parentLayout = (ColorAnimationRelativeLayout) findViewById(R.id.parent_layout);
-        quoteText = (AlphaAnimationTextView) findViewById(R.id.quote_text);
-        quoteAuthor = (AlphaAnimationTextView) findViewById(R.id.quote_author);
+        quoteText = (AnimationTextView) findViewById(R.id.quote_text);
+        quoteAuthor = (AnimationTextView) findViewById(R.id.quote_author);
+        openQuoteImage = (AlphaAnimationImageView) findViewById(R.id.open_quote_image);
+        closeQuoteImage = (AlphaAnimationImageView) findViewById(R.id.close_quote_image);
         refreshBtn = (Button) findViewById(R.id.check_service_button);
     }
 
@@ -55,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<Quote> call, @NonNull Response<Quote> response) {
                 if (response.isSuccessful()) {
-                    quoteText.updateTextValue(response.body().getQuoteText());
-                    quoteAuthor.updateTextValue(response.body().getQuoteAuthor());
-                    parentLayout.updateBackgroundColor();
+                    updateQuoteUI(response.body().getQuoteText(), response.body().getQuoteAuthor());
                 }
             }
 
@@ -66,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(Constants.LOG_TAG, t.getMessage());
             }
         });
+    }
+
+    private void updateQuoteUI(String quoteTextValue, String quoteAuthorValue) {
+        quoteText.updateTextValue(quoteTextValue);
+        quoteAuthor.updateTextValue(quoteAuthorValue);
+        parentLayout.updateBackgroundColor();
     }
 
 }

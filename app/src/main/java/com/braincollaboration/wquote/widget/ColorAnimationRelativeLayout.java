@@ -6,8 +6,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
+import com.braincollaboration.wquote.R;
 import com.braincollaboration.wquote.utils.ViewUtils;
-import com.braincollaboration.wquote.utils.randomcolor.RandomColor;
+
+import java.util.Random;
 
 /**
  * Created by evhenii on 06.09.17.
@@ -15,8 +17,7 @@ import com.braincollaboration.wquote.utils.randomcolor.RandomColor;
 
 public class ColorAnimationRelativeLayout extends RelativeLayout {
 
-    private ValueAnimator colorAnimation;
-    private RandomColor randomColor;
+    private final static long ANIM_DURATION = 1500;
 
     public ColorAnimationRelativeLayout(Context context) {
         this(context, null);
@@ -28,25 +29,23 @@ public class ColorAnimationRelativeLayout extends RelativeLayout {
 
     public ColorAnimationRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        randomColor = new RandomColor();
     }
 
     public void updateBackgroundColor() {
-        colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), ViewUtils.getViewBackgroundColor(this), getRandomColor());
-        colorAnimation.setDuration(2000); // milliseconds
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), ViewUtils.getViewBackgroundColor(this), getRandomColor());
+        colorAnimation.setDuration(ANIM_DURATION);
         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-
             @Override
             public void onAnimationUpdate(ValueAnimator animator) {
                 setBackgroundColor((int) animator.getAnimatedValue());
             }
-
         });
         colorAnimation.start();
     }
 
     private int getRandomColor() {
-        return randomColor.randomColor(randomColor.pickHue(RandomColor.Color.BLUE.toString()), RandomColor.SaturationType.RANDOM, RandomColor.Luminosity.LIGHT);
+        int[] androidColors = getResources().getIntArray(R.array.colorsList);
+        return androidColors[new Random().nextInt(androidColors.length)];
     }
 
 }

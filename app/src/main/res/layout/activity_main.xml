@@ -8,19 +8,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/check_service_button"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <com.braincollaboration.wquote.widget.AlphaAnimationTextView
+        <com.braincollaboration.wquote.widget.AlphaAnimationImageView
+            android:id="@+id/open_quote_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:src="@drawable/open_quote" />
+
+        <com.braincollaboration.wquote.widget.AnimationTextView
             android:id="@+id/quote_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:padding="15dp"
             android:text="@string/default_quote"
             android:textSize="25sp" />
 
-        <com.braincollaboration.wquote.widget.AlphaAnimationTextView
+        <com.braincollaboration.wquote.widget.AlphaAnimationImageView
+            android:id="@+id/close_quote_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:src="@drawable/close_quote" />
+
+        <com.braincollaboration.wquote.widget.AnimationTextView
             android:id="@+id/quote_author"
             android:layout_width="match_parent"
             android:layout_height="0dp"

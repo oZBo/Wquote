@@ -3,4 +3,51 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <item name="bg1" type="color">#797A9E</item>
+    <item name="bg2" type="color">#BBBDF6</item>
+    <item name="bg3" type="color">#D4E6B5</item>
+    <item name="bg4" type="color">#E2D686</item>
+    <item name="bg5" type="color">#8AA29E</item>
+    <item name="bg6" type="color">#BBBAC6</item>
+    <item name="bg7" type="color">#B7CECE</item>
+    <item name="bg8" type="color">#A4C3B2</item>
+    <item name="bg9" type="color">#CCE3DE</item>
+    <item name="bg10" type="color">#B3B3B3</item>
+    <item name="bg11" type="color">#BBB891</item>
+    <item name="bg12" type="color">#7BA098</item>
+    <item name="bg13" type="color">#C7CB85</item>
+    <item name="bg14" type="color">#7EA172</item>
+    <item name="bg15" type="color">#C2B2B4</item>
+    <item name="bg16" type="color">#89CE94</item>
+    <item name="bg17" type="color">#BCAA99</item>
+    <item name="bg18" type="color">#96897B</item>
+    <item name="bg19" type="color">#8A8D91</item>
+    <item name="bg20" type="color">#BCBDC0</item>
+    <item name="bg21" type="color">#9F9F92</item>
+
+    <integer-array name="colorsList">
+        <item>@color/bg1</item>
+        <item>@color/bg2</item>
+        <item>@color/bg3</item>
+        <item>@color/bg4</item>
+        <item>@color/bg5</item>
+        <item>@color/bg6</item>
+        <item>@color/bg7</item>
+        <item>@color/bg8</item>
+        <item>@color/bg9</item>
+        <item>@color/bg10</item>
+        <item>@color/bg11</item>
+        <item>@color/bg12</item>
+        <item>@color/bg13</item>
+        <item>@color/bg14</item>
+        <item>@color/bg15</item>
+        <item>@color/bg16</item>
+        <item>@color/bg17</item>
+        <item>@color/bg18</item>
+        <item>@color/bg19</item>
+        <item>@color/bg20</item>
+        <item>@color/bg21</item>
+    </integer-array>
+
 </resources>

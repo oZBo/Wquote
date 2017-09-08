@@ -3,31 +3,30 @@ package com.braincollaboration.wquote.widget;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+
+import com.braincollaboration.wquote.utils.AnimationUtil;
 
 /**
  * Created by evhenii on 06.09.17.
  */
 
-public class AlphaAnimationTextView extends android.support.v7.widget.AppCompatTextView {
+public class AnimationTextView extends android.support.v7.widget.AppCompatTextView {
 
-    private final static long ANIM_DURATION = 1000;
+    private final static long ANIM_DURATION = 750;
 
-    private AlphaAnimation fadeIn;
-    private AlphaAnimation fadeOut;
+    private Animation fromRightToCenter, fromCenterToLeft;
     private String currentValue;
 
-
-    public AlphaAnimationTextView(Context context) {
+    public AnimationTextView(Context context) {
         this(context, null);
     }
 
-    public AlphaAnimationTextView(Context context, @Nullable AttributeSet attrs) {
+    public AnimationTextView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, -1);
     }
 
-    public AlphaAnimationTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public AnimationTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAnimations();
     }
@@ -35,16 +34,16 @@ public class AlphaAnimationTextView extends android.support.v7.widget.AppCompatT
     public void updateTextValue(String value) {
         if (value != null) {
             currentValue = value;
-            startAnimation(fadeOut);
+            startAnimation(fromCenterToLeft);
         }
     }
 
     private void initAnimations() {
-        fadeIn = new AlphaAnimation(0.0f, 1.0f);
-        fadeIn.setDuration(ANIM_DURATION);
-        fadeOut = new AlphaAnimation(1.0f, 0.0f);
-        fadeOut.setDuration(ANIM_DURATION);
-        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+        fromCenterToLeft = AnimationUtil.getOutToLeftAnimation();
+        fromCenterToLeft.setDuration(ANIM_DURATION);
+        fromRightToCenter = AnimationUtil.getInFromRightAnimation();
+        fromRightToCenter.setDuration(ANIM_DURATION);
+        fromCenterToLeft.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -53,7 +52,7 @@ public class AlphaAnimationTextView extends android.support.v7.widget.AppCompatT
             @Override
             public void onAnimationEnd(Animation animation) {
                 setText(currentValue);
-                startAnimation(fadeIn);
+                startAnimation(fromRightToCenter);
             }
 
             @Override
