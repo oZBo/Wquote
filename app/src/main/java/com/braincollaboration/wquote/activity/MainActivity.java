@@ -87,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateQuoteUI(String quoteTextValue, String quoteAuthorValue) {
         int i = new Random().nextInt(AlphaAnimationImageView.getBackgroundSrcSize());
-        Log.d("LOG_TAG", Integer.toString(quoteTextValue.length()));
-        Log.d("LOG_TAG", Float.toString(quoteText.getTextSize()));
         openQuoteImage.startAnimation(BackgroundImageSource.TOP, i);
         closeQuoteImage.startAnimation(BackgroundImageSource.BOTTOM, i);
         quoteText.updateTextValue(quoteTextValue);
