@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,6 +13,14 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            custom:textToggleLeft="Русский"
+            custom:textToggleRight="English"
+            custom:toggleWidth="120dp"/>
+
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/open_quote_image"
             android:layout_width="match_parent"
@@ -19,15 +28,29 @@
             android:layout_gravity="start"
             app:srcCompat="@drawable/b11" />
 
-        <com.braincollaboration.wquote.widget.AnimationTextView
-            android:id="@+id/quote_text"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="@string/default_quote"
-            android:textSize="25sp" />
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.braincollaboration.wquote.widget.AnimationTextView
+                    android:id="@+id/quote_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@string/default_quote"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/close_quote_image"
@@ -47,5 +70,12 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/check_service_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="refresh_quote" />
 
 </com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout>

@@ -39,25 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initWidgets();
-        //configureRefreshButton();
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltaX = x2 - x1;
-                // left2right swipe
-                if (deltaX < x1 && Math.abs(deltaX) > MIN_DISTANCE) {
-                    refreshQuote(LanguageType.RU);
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
+        configureRefreshButton();
     }
 
     private void initWidgets() {
@@ -78,14 +60,14 @@ public class MainActivity extends AppCompatActivity {
         refreshBtn = (Button) findViewById(R.id.check_service_button);
     }
 
-//    private void configureRefreshButton() {
-//        refreshBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                refreshQuote(LanguageType.RU);
-//            }
-//        });
-//    }
+    private void configureRefreshButton() {
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refreshQuote(LanguageType.RU);
+            }
+        });
+    }
 
     private void refreshQuote(LanguageType langType) {
         ApiUtils.getForismaticService().getRandomQuote(langType.name().toLowerCase()).enqueue(new Callback<Quote>() {

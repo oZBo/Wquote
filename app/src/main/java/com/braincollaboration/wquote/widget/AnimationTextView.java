@@ -52,13 +52,13 @@ public class AnimationTextView extends android.support.v7.widget.AppCompatTextVi
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (getId() == R.id.quote_text) {
-                    if (currentValue.length() > 190) {
-                        setTextSize(18);
-                    } else {
-                        setTextSize(25);
-                    }
-                }
+//                if (getId() == R.id.quote_text) {
+//                    if (currentValue.length() > 190) {
+//                        setTextSize(18);
+//                    } else {
+//                        setTextSize(25);
+//                    }
+//                }
                 setText(currentValue);
                 startAnimation(fromRightToCenter);
             }
