@@ -2,4 +2,5 @@
     <string name="app_name">Wquote</string>
     <string name="default_quote">Она всегда умела привести цитату, — а это хорошая замена собственному остроумию.</string>
     <string name="default_quote_author">Уильям Сомерсет Моэм</string>
+    <string name="refresh_quote">refresh_quote</string>
 </resources>
