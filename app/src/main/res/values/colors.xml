@@ -4,27 +4,30 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <item name="bg1" type="color">#797A9E</item>
-    <item name="bg2" type="color">#BBBDF6</item>
-    <item name="bg3" type="color">#D4E6B5</item>
-    <item name="bg4" type="color">#E2D686</item>
-    <item name="bg5" type="color">#8AA29E</item>
-    <item name="bg6" type="color">#BBBAC6</item>
-    <item name="bg7" type="color">#B7CECE</item>
-    <item name="bg8" type="color">#A4C3B2</item>
-    <item name="bg9" type="color">#CCE3DE</item>
-    <item name="bg10" type="color">#B3B3B3</item>
-    <item name="bg11" type="color">#BBB891</item>
-    <item name="bg12" type="color">#7BA098</item>
-    <item name="bg13" type="color">#C7CB85</item>
-    <item name="bg14" type="color">#7EA172</item>
-    <item name="bg15" type="color">#C2B2B4</item>
-    <item name="bg16" type="color">#89CE94</item>
-    <item name="bg17" type="color">#BCAA99</item>
-    <item name="bg18" type="color">#96897B</item>
-    <item name="bg19" type="color">#8A8D91</item>
-    <item name="bg20" type="color">#BCBDC0</item>
-    <item name="bg21" type="color">#9F9F92</item>
+    <item name="bg1" type="color">#9977B4</item>
+    <item name="bg2" type="color">#BC81B7</item>
+    <item name="bg3" type="color">#DB87B9</item>
+    <item name="bg4" type="color">#EA92BC</item>
+    <item name="bg5" type="color">#F497A9</item>
+    <item name="bg6" type="color">#F69C9B</item>
+    <item name="bg7" type="color">#F8A792</item>
+    <item name="bg8" type="color">#F9B48A</item>
+    <item name="bg9" type="color">#FABC89</item>
+    <item name="bg10" type="color">#FECD80</item>
+    <item name="bg11" type="color">#FEE185</item>
+    <item name="bg12" type="color">#FFED81</item>
+    <item name="bg13" type="color">#FFED81</item>
+    <item name="bg14" type="color">#FFF68F</item>
+    <item name="bg15" type="color">#EEEB80</item>
+    <item name="bg16" type="color">#D5E286</item>
+    <item name="bg17" type="color">#D7E188</item>
+    <item name="bg18" type="color">#B6D884</item>
+    <item name="bg19" type="color">#7C8BC6</item>
+    <item name="bg20" type="color">#82CCB5</item>
+    <item name="bg21" type="color">#77CCC9</item>
+    <item name="bg22" type="color">#6ACBDE</item>
+    <item name="bg23" type="color">#6BBCE9</item>
+    <item name="bg24" type="color">#71ABDD</item>
 
     <integer-array name="colorsList">
         <item>@color/bg1</item>
@@ -48,6 +51,9 @@
         <item>@color/bg19</item>
         <item>@color/bg20</item>
         <item>@color/bg21</item>
+        <item>@color/bg22</item>
+        <item>@color/bg23</item>
+        <item>@color/bg24</item>
     </integer-array>
 
 </resources>

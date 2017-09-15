@@ -13,54 +13,76 @@
         android:padding="10dp">
 
         <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+            android:id="@+id/lang_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingBottom="10dp"
             custom:textToggleLeft="Русский"
             custom:textToggleRight="English"
-            custom:toggleWidth="120dp"/>
+            custom:toggleWidth="120dp" />
 
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/open_quote_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/open_quote" />
-
-        <com.braincollaboration.wquote.widget.AnimationTextView
-            android:id="@+id/quote_text"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="@string/default_quote"
-            android:textSize="25sp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/b11" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.braincollaboration.wquote.widget.AnimationTextView
+                    android:id="@+id/quote_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@string/default_quote"
+                    android:textSize="25sp"
+                    custom:text_style="regular" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/close_quote_image"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_gravity="left"
-            android:src="@drawable/close_quote" />
+            android:layout_gravity="center"
+            android:src="@drawable/b12" />
 
         <com.braincollaboration.wquote.widget.AnimationTextView
             android:id="@+id/quote_author"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
-            android:gravity="left|center_vertical"
+            android:gravity="start"
             android:padding="15dp"
             android:text="@string/default_quote_author"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            custom:text_style="bold" />
 
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/check_service_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:text="refresh_quote" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/refresh_quote"
+        android:scaleType="centerInside"
+        android:src="@drawable/button" />
 
 </com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout>

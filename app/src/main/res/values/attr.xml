@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimationTextView">
+        <attr name="text_style" format="integer">
+            <flag name="regular" value="1" />
+            <flag name="bold" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

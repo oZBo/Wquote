@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import com.braincollaboration.wquote.R;
 import com.braincollaboration.wquote.utils.ViewUtils;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
