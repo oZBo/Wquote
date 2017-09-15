@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ToggleSwitch langSwitcher;
     private AlphaAnimationImageView openQuoteImage, closeQuoteImage;
     private ImageButton refreshBtn;
+    private long downTime;
+    private long currentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,12 @@ public class MainActivity extends AppCompatActivity {
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int lang = langSwitcher.getCheckedTogglePosition();
-                refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
+                currentTime = System.currentTimeMillis();
+                if (downTime == 0 || currentTime - downTime >= 3000) {
+                    downTime = currentTime;
+                    int lang = langSwitcher.getCheckedTogglePosition();
+                    refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
+                }
             }
         });
     }
