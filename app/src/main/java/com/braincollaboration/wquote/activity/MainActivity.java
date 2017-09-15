@@ -1,6 +1,5 @@
 package com.braincollaboration.wquote.activity;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -47,19 +46,12 @@ public class MainActivity extends AppCompatActivity {
         parentLayout = (ColorAnimationRelativeLayout) findViewById(R.id.parent_layout);
         int[] androidColors = getResources().getIntArray(R.array.colorsList);
         parentLayout.setBackgroundColor(androidColors[new Random().nextInt(androidColors.length)]);
-
         langSwitcher = (ToggleSwitch) findViewById(R.id.lang_switch);
         refreshBtn = (ImageButton) findViewById(R.id.check_service_button);
         openQuoteImage = (AlphaAnimationImageView) findViewById(R.id.open_quote_image);
         closeQuoteImage = (AlphaAnimationImageView) findViewById(R.id.close_quote_image);
-
-        Typeface face = Typeface.createFromAsset(getAssets(), Constants.CUSTOM_FONT_REGULAR);
         quoteText = (AnimationTextView) findViewById(R.id.quote_text);
-        quoteText.setTypeface(face);
-
-        face = Typeface.createFromAsset(getAssets(), Constants.CUSTOM_FONT_BOLD);
         quoteAuthor = (AnimationTextView) findViewById(R.id.quote_author);
-        quoteAuthor.setTypeface(face);
     }
 
     private void configureRefreshButton() {

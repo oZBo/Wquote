@@ -47,7 +47,8 @@
                     android:gravity="center"
                     android:padding="15dp"
                     android:text="@string/default_quote"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    custom:text_style="regular" />
 
             </LinearLayout>
 
@@ -68,7 +69,8 @@
             android:gravity="start"
             android:padding="15dp"
             android:text="@string/default_quote_author"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            custom:text_style="bold" />
 
     </LinearLayout>
 
