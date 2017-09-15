@@ -1,11 +1,11 @@
 package com.braincollaboration.wquote.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.braincollaboration.wquote.R;
 import com.braincollaboration.wquote.api.ApiUtils;
@@ -15,6 +15,7 @@ import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
 import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
 import com.braincollaboration.wquote.widget.AnimationTextView;
+import com.braincollaboration.wquote.widget.ButtonProgressBar;
 import com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout;
 
 import java.util.Random;
@@ -30,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private AnimationTextView quoteText, quoteAuthor;
     private ToggleSwitch langSwitcher;
     private AlphaAnimationImageView openQuoteImage, closeQuoteImage;
-    private ImageButton refreshBtn;
-    private long downTime;
-    private long currentTime;
+    private ButtonProgressBar refreshBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         int[] androidColors = getResources().getIntArray(R.array.colorsList);
         parentLayout.setBackgroundColor(androidColors[new Random().nextInt(androidColors.length)]);
         langSwitcher = (ToggleSwitch) findViewById(R.id.lang_switch);
-        refreshBtn = (ImageButton) findViewById(R.id.check_service_button);
+        refreshBtn = (ButtonProgressBar) findViewById(R.id.next_quote_button);
         openQuoteImage = (AlphaAnimationImageView) findViewById(R.id.open_quote_image);
         closeQuoteImage = (AlphaAnimationImageView) findViewById(R.id.close_quote_image);
         quoteText = (AnimationTextView) findViewById(R.id.quote_text);
@@ -58,12 +57,16 @@ public class MainActivity extends AppCompatActivity {
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTime = System.currentTimeMillis();
-                if (downTime == 0 || currentTime - downTime >= 3000) {
-                    downTime = currentTime;
-                    int lang = langSwitcher.getCheckedTogglePosition();
-                    refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
-                }
+                int lang = langSwitcher.getCheckedTogglePosition();
+                refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
+                refreshBtn.startLoader();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshBtn.stopLoader();
+                        refreshBtn.reset();
+                    }
+                }, 1500);
             }
         });
     }

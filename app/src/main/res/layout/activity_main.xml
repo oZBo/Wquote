@@ -5,27 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+        android:id="@+id/lang_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        custom:textToggleLeft="Русский"
+        custom:textToggleRight="English"
+        custom:toggleWidth="120dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/check_service_button"
+        android:layout_above="@+id/next_quote_button"
+        android:layout_below="@+id/lang_switch"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
-
-        <belka.us.androidtoggleswitch.widgets.ToggleSwitch
-            android:id="@+id/lang_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingBottom="10dp"
-            custom:textToggleLeft="Русский"
-            custom:textToggleRight="English"
-            custom:toggleWidth="120dp" />
 
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/open_quote_image"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:src="@drawable/b11" />
 
@@ -42,8 +46,7 @@
                 <com.braincollaboration.wquote.widget.AnimationTextView
                     android:id="@+id/quote_text"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="15dp"
                     android:text="@string/default_quote"
@@ -57,15 +60,14 @@
         <com.braincollaboration.wquote.widget.AlphaAnimationImageView
             android:id="@+id/close_quote_image"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:src="@drawable/b12" />
 
         <com.braincollaboration.wquote.widget.AnimationTextView
             android:id="@+id/quote_author"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_height="50dp"
             android:gravity="start"
             android:padding="15dp"
             android:text="@string/default_quote_author"
@@ -74,15 +76,15 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/check_service_button"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
+    <com.braincollaboration.wquote.widget.ButtonProgressBar
+        android:id="@+id/next_quote_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:contentDescription="@string/refresh_quote"
-        android:scaleType="centerInside"
-        android:src="@drawable/button" />
+        android:layout_margin="12dp"
+        custom:bgColor="@color/blue"
+        custom:progColor="@color/gray_light"
+        custom:text="&#10143;"
+        custom:type="indeterminate" />
 
 </com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout>
