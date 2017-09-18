@@ -47,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
         parentLayout.setBackgroundColor(androidColors[new Random().nextInt(androidColors.length)]);
         langSwitcher = (ToggleSwitch) findViewById(R.id.lang_switch);
         refreshBtn = (ButtonProgressBar) findViewById(R.id.next_quote_button);
+
+        int i = new Random().nextInt(AlphaAnimationImageView.getBackgroundSrcSize());
         openQuoteImage = (AlphaAnimationImageView) findViewById(R.id.open_quote_image);
+        openQuoteImage.setImageResource(AlphaAnimationImageView.getBackgroundSrc1()[i]);
+
         closeQuoteImage = (AlphaAnimationImageView) findViewById(R.id.close_quote_image);
+        closeQuoteImage.setImageResource(AlphaAnimationImageView.getBackgroundSrc2()[i]);
+
         quoteText = (AnimationTextView) findViewById(R.id.quote_text);
         quoteAuthor = (AnimationTextView) findViewById(R.id.quote_author);
     }
