@@ -38,10 +38,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        initFabric();
         setContentView(R.layout.activity_main);
         initWidgets();
         configureRefreshButton();
+    }
+
+    private void initFabric() {
+        final Fabric fabric = new Fabric.Builder(this)
+                .kits(new Crashlytics())
+                .debuggable(true)
+                .build();
+        Fabric.with(fabric);
     }
 
     private void initWidgets() {
