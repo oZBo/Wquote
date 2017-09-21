@@ -17,10 +17,12 @@ import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
 import com.braincollaboration.wquote.widget.AnimationTextView;
 import com.braincollaboration.wquote.widget.ButtonProgressBar;
 import com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout;
+import com.crashlytics.android.Crashlytics;
 
 import java.util.Random;
 
 import belka.us.androidtoggleswitch.widgets.ToggleSwitch;
+import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         initWidgets();
         configureRefreshButton();
