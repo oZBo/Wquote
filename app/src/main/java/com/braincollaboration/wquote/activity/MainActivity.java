@@ -1,10 +1,13 @@
 package com.braincollaboration.wquote.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.braincollaboration.wquote.R;
@@ -43,6 +46,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         configureRefreshButton();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about_menu_button:
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void initFabric() {

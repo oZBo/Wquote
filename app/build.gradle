@@ -55,6 +55,7 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true;
     }
+    compile 'com.github.jrvansuita:MaterialAbout:0.1.8'
 }
 
 apply plugin: 'com.google.gms.google-services'

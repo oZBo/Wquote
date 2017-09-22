@@ -4,4 +4,5 @@
     <string name="default_quote">I always have a quotation for everything - it saves original thinking.</string>
     <string name="default_quote_author">Dorothy L. Sayers</string>
     <string name="no_internet">no internet connection</string>
+    <string name="about_menu_button">About</string>
 </resources>

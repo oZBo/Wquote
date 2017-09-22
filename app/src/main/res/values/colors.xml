@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="beigeColor">#F7F7DF</color>
 
     <item name="bg1" type="color">#9977B4</item>
     <item name="bg2" type="color">#BC81B7</item>
