@@ -3,6 +3,8 @@
     <string name="app_name">Wquote</string>
     <string name="default_quote">I always have a quotation for everything - it saves original thinking.</string>
     <string name="default_quote_author">Dorothy L. Sayers</string>
+    <string name="refresh_quote">refresh_quote</string>
     <string name="no_internet">no internet connection</string>
     <string name="about_menu_button">About</string>
+    <string name="menuPurchasesListNewRecord">New quote</string>
 </resources>

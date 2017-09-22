@@ -63,22 +63,12 @@
         android:id="@+id/quote_author"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_above="@+id/next_quote_button"
         android:gravity="center_horizontal"
         android:padding="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="12dp"
         android:text="@string/default_quote_author"
         android:textSize="20sp"
         custom:text_style="bold" />
-
-    <com.braincollaboration.wquote.widget.ButtonProgressBar
-        android:id="@+id/next_quote_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="12dp"
-        custom:bgColor="@color/blue"
-        custom:progColor="@color/gray_light"
-        custom:text="&#10143;"
-        custom:type="indeterminate" />
 
 </com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout>

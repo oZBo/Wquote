@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.braincollaboration.wquote.R;
 import com.braincollaboration.wquote.api.ApiUtils;
@@ -19,7 +18,6 @@ import com.braincollaboration.wquote.utils.Constants;
 import com.braincollaboration.wquote.utils.InternetUtil;
 import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
 import com.braincollaboration.wquote.widget.AnimationTextView;
-import com.braincollaboration.wquote.widget.ButtonProgressBar;
 import com.braincollaboration.wquote.widget.ColorAnimationRelativeLayout;
 import com.crashlytics.android.Crashlytics;
 
@@ -37,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private AnimationTextView quoteText, quoteAuthor;
     private ToggleSwitch langSwitcher;
     private AlphaAnimationImageView openQuoteImage, closeQuoteImage;
-    private ButtonProgressBar refreshBtn;
+    private MenuItem newQuoteButton;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
         initFabric();
         setContentView(R.layout.activity_main);
         initWidgets();
-        configureRefreshButton();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -60,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.about_menu_button:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 return true;
+            case R.id.new_quote_button:
+                performUpdateQuoteClick();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -78,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         int[] androidColors = getResources().getIntArray(R.array.colorsList);
         parentLayout.setBackgroundColor(androidColors[new Random().nextInt(androidColors.length)]);
         langSwitcher = (ToggleSwitch) findViewById(R.id.lang_switch);
-        refreshBtn = (ButtonProgressBar) findViewById(R.id.next_quote_button);
 
         int i = new Random().nextInt(AlphaAnimationImageView.getBackgroundSrcSize());
         openQuoteImage = (AlphaAnimationImageView) findViewById(R.id.open_quote_image);
@@ -91,25 +91,18 @@ public class MainActivity extends AppCompatActivity {
         quoteAuthor = (AnimationTextView) findViewById(R.id.quote_author);
     }
 
-    private void configureRefreshButton() {
-        refreshBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performUpdateQuoteClick();
-            }
-        });
-    }
-
     private void performUpdateQuoteClick() {
+        newQuoteButton = menu.findItem(R.id.new_quote_button);
         int lang = langSwitcher.getCheckedTogglePosition();
         if (InternetUtil.isInternetConnectionAvailable(this)) {
             refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
-            refreshBtn.startLoader();
+            newQuoteButton.setVisible(false);
+            newQuoteButton.setEnabled(false);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    refreshBtn.stopLoader();
-                    refreshBtn.reset();
+                    newQuoteButton.setVisible(true);
+                    newQuoteButton.setEnabled(true);
                 }
             }, 1500);
         }
