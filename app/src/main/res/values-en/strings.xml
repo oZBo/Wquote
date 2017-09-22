@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wquote</string>
+    <string name="default_quote">I always have a quotation for everything - it saves original thinking.</string>
+    <string name="default_quote_author">Dorothy L. Sayers</string>
+    <string name="no_internet">no internet connection</string>
+</resources>

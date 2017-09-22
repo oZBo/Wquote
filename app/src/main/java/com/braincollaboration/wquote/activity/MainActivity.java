@@ -13,6 +13,7 @@ import com.braincollaboration.wquote.model.BackgroundImageSource;
 import com.braincollaboration.wquote.model.LanguageType;
 import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
+import com.braincollaboration.wquote.utils.InternetUtil;
 import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
 import com.braincollaboration.wquote.widget.AnimationTextView;
 import com.braincollaboration.wquote.widget.ButtonProgressBar;
@@ -74,18 +75,24 @@ public class MainActivity extends AppCompatActivity {
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int lang = langSwitcher.getCheckedTogglePosition();
-                refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
-                refreshBtn.startLoader();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        refreshBtn.stopLoader();
-                        refreshBtn.reset();
-                    }
-                }, 1500);
+                performUpdateQuoteClick();
             }
         });
+    }
+
+    private void performUpdateQuoteClick() {
+        int lang = langSwitcher.getCheckedTogglePosition();
+        if (InternetUtil.isInternetConnectionAvailable(this)) {
+            refreshQuote(lang == 0 ? LanguageType.RU : LanguageType.EN);
+            refreshBtn.startLoader();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    refreshBtn.stopLoader();
+                    refreshBtn.reset();
+                }
+            }, 1500);
+        }
     }
 
     private void refreshQuote(LanguageType langType) {
