@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary_material_dark">#123256</color>
-    <color name="accent_material_light">#bbbbbb</color>
+    <color name="accent_material_light">#123256</color>
     <color name="primary_dark_material_dark">#333333</color>
+    <color name="about_background">#bbbbbb</color>
     <color name="app_icon_main_color">#E0E0D1</color>
 
     <item name="bg1" type="color">#9977B4</item>
