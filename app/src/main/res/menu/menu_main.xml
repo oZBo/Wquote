@@ -10,10 +10,10 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/new_quote_button"
+        android:id="@+id/share_action"
         android:orderInCategory="10"
-        app:showAsAction="always|withText"
-        android:title="@string/menuPurchasesListNewRecord"
-        android:icon="@drawable/new_quote_button">
+        app:showAsAction="ifRoom"
+        android:title="@string/chooser"
+        android:icon="@android:drawable/ic_menu_share">
     </item>
 </menu>

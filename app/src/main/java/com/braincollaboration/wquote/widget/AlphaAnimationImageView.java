@@ -18,8 +18,8 @@ public class AlphaAnimationImageView extends android.support.v7.widget.AppCompat
     private final static long ANIM_DURATION = 750;
     private BackgroundImageSource imageSrc;
     private int pare;
-    private final static int[] backgroundSrc1 = {R.drawable.b11, R.drawable.b21, R.drawable.b31, R.drawable.b41, R.drawable.b51, R.drawable.b61, R.drawable.b121, R.drawable.b161, R.drawable.b171};
-    private final static int[] backgroundSrc2 = {R.drawable.b12, R.drawable.b22, R.drawable.b32, R.drawable.b42, R.drawable.b52, R.drawable.b62, R.drawable.b122, R.drawable.b162, R.drawable.b172};
+    private final static int[] backgroundSrc1 = {R.drawable.b11, R.drawable.b21, R.drawable.b31, R.drawable.b41, R.drawable.b51, R.drawable.b61, R.drawable.b81, R.drawable.b101, R.drawable.b111, R.drawable.b121, R.drawable.b141, R.drawable.b151, R.drawable.b161, R.drawable.b171, R.drawable.b181};
+    private final static int[] backgroundSrc2 = {R.drawable.b12, R.drawable.b22, R.drawable.b32, R.drawable.b42, R.drawable.b52, R.drawable.b62, R.drawable.b82, R.drawable.b102, R.drawable.b112, R.drawable.b122, R.drawable.b142, R.drawable.b152, R.drawable.b162, R.drawable.b172, R.drawable.b182};
 
     public static int[] getBackgroundSrc1() {
         return backgroundSrc1;

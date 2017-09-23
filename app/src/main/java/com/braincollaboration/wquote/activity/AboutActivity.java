@@ -17,7 +17,7 @@ public class AboutActivity extends Activity {
         AboutView view = AboutBuilder.with(this)
                 .setPhoto(R.drawable.profile_picture)
                 .setCover(R.drawable.about_cover)
-                .setBackgroundColor(R.color.beigeColor)
+                .setBackgroundColor(R.color.accent_material_light)
                 .setName("Brain Collaboration")
                 .setSubTitle("Android development")
                 .setBrief("Расширь свой кругозор!")

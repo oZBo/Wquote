@@ -5,5 +5,5 @@
     <string name="refresh_quote">refresh_quote</string>
     <string name="no_internet">нет подключения к сети</string>
     <string name="about_menu_button">О приложении</string>
-    <string name="menuPurchasesListNewRecord">Новая цитата</string>
+    <string name="chooser">Отправить цитату…</string>
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="beigeColor">#F7F7DF</color>
+    <color name="primary_material_dark">#123256</color>
+    <color name="accent_material_light">#bbbbbb</color>
+    <color name="primary_dark_material_dark">#333333</color>
+    <color name="app_icon_main_color">#E0E0D1</color>
 
     <item name="bg1" type="color">#9977B4</item>
     <item name="bg2" type="color">#BC81B7</item>
@@ -29,6 +29,7 @@
     <item name="bg22" type="color">#6ACBDE</item>
     <item name="bg23" type="color">#6BBCE9</item>
     <item name="bg24" type="color">#71ABDD</item>
+    <item name="bg25" type="color">#E0E0D1</item>
 
     <integer-array name="colorsList">
         <item>@color/bg1</item>
@@ -55,6 +56,7 @@
         <item>@color/bg22</item>
         <item>@color/bg23</item>
         <item>@color/bg24</item>
+        <item>@color/bg25</item>
     </integer-array>
 
 </resources>

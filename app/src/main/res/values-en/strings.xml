@@ -6,5 +6,5 @@
     <string name="refresh_quote">refresh_quote</string>
     <string name="no_internet">no internet connection</string>
     <string name="about_menu_button">About</string>
-    <string name="menuPurchasesListNewRecord">New quote</string>
+    <string name="chooser">Share quote…</string>
 </resources>
