@@ -17,6 +17,7 @@ import com.braincollaboration.wquote.model.LanguageType;
 import com.braincollaboration.wquote.model.Quote;
 import com.braincollaboration.wquote.utils.Constants;
 import com.braincollaboration.wquote.utils.InternetUtil;
+import com.braincollaboration.wquote.utils.SharedPreferenceHelper;
 import com.braincollaboration.wquote.widget.AlphaAnimationImageView;
 import com.braincollaboration.wquote.widget.AnimationTextView;
 import com.braincollaboration.wquote.widget.ButtonProgressBar;
@@ -46,7 +47,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         configureRefreshButton();
+        loadQuoteFromPrefs();
+    }
 
+    private void loadQuoteFromPrefs() {
+        String savedQuote = SharedPreferenceHelper.getString(this, SharedPreferenceHelper.KEY_QOUTE, getString(R.string.default_quote));
+        String savedAuthor = SharedPreferenceHelper.getString(this, SharedPreferenceHelper.KEY_AUTHOR, getString(R.string.default_quote_author));
+        quoteText.setText(savedQuote);
+        quoteAuthor.setText(savedAuthor);
     }
 
     @Override
@@ -122,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<Quote> call, @NonNull Response<Quote> response) {
                 if (response.isSuccessful()) {
                     updateQuoteUI(response.body().getQuoteText(), response.body().getQuoteAuthor());
+                    savedQuoteToPrefs(response.body().getQuoteText(), response.body().getQuoteAuthor());
                 }
             }
 
@@ -130,6 +139,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(Constants.LOG_TAG, t.getMessage());
             }
         });
+    }
+
+    private void savedQuoteToPrefs(String quote, String author) {
+        SharedPreferenceHelper.putString(this, SharedPreferenceHelper.KEY_QOUTE, quote);
+        SharedPreferenceHelper.putString(this, SharedPreferenceHelper.KEY_AUTHOR, author);
     }
 
     private void updateQuoteUI(String quoteTextValue, String quoteAuthorValue) {
