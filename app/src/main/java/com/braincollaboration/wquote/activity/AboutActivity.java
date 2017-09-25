@@ -20,7 +20,7 @@ public class AboutActivity extends Activity {
                 .setBackgroundColor(R.color.about_background)
                 .setName("Brain Collaboration")
                 .setSubTitle("Android development")
-                .setBrief("Расширь свой кругозор!")
+                .setBrief(R.string.brief)
                 .setAppIcon(R.drawable.app_icon)
                 .setAppName(R.string.app_name)
                 .addGitHubLink("oZBo/Wordus")
